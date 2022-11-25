@@ -6,7 +6,7 @@
 4. @vuetify/nightly 3.0.2
 5. @vitejs/plugin-vue ^3.0.3 => 3.2.0
 
-# Install Log
+# Install Log (Backend)
 
 1. Create virtual environment named "venv"
 
