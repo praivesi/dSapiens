@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "express-generator": "^4.16.1",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
     "vue": "^3.2.45"
   }
 }
