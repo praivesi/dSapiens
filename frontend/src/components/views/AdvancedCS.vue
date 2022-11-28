@@ -1,10 +1,10 @@
 <template>
-    Software, Hardware, Computer Science ...
+  
 </template>
 
 <script>
 export default {
-    name: 'DevelopView'
+    name: 'AdvancedCSView'
 }
 </script>
 

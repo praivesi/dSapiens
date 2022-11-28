@@ -1,10 +1,10 @@
 <template>
-    Travel, U.K Undergraduate Degree, IELTS ...
+  Books, History, Psychology ...
 </template>
 
 <script>
 export default {
-    name: 'LifeView'
+    name: 'PhilosophyView'
 }
 </script>
 

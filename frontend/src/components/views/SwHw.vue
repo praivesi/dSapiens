@@ -1,10 +1,10 @@
 <template>
-    Travel, U.K Undergraduate Degree, IELTS ...
+    Software, Hardware, Computer Science ...
 </template>
 
 <script>
 export default {
-    name: 'LifeView'
+    name: 'SwHwView'
 }
 </script>
 
