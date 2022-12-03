@@ -33,3 +33,13 @@
 > python3 backend/manage.py runserver
 
 6-2. Enter django server on Chrome (http://localhost:8000)
+
+# Run Front-End
+1. Go to dsapiens/frontend/dsapiens_frontend/
+
+> cd ./frontend/dsaipens_frontend/
+
+2. Run dev
+
+> npm run dev
+
