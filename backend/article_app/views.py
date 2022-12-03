@@ -3,19 +3,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import viewsets
+from rest_framework import permissions
+from rest_framework.views import APIView
 from .models import Article
 from .serializers import BaseArticleSerializer
 
 
 def index(request):
-    return HttpResponse('Hello world! This is article_app!')
+    return HttpResponse('Hello world! This is API Root!')
 
-@api_view(['GET'])
-def ArticleAPI(request, id):
-    cur_article = Article()
-    cur_article.title = 'Article Title'
-    cur_article.author = 'Article Author'
-
-    serializer = BaseArticleSerializer(cur_article)
-
-    return Response(serializer.data)
+class ArticleAPI(APIView):
+    def get(self, request):
+        queryset = Article.objects.all()
+        print(queryset)
+        serializer = BaseArticleSerializer(queryset, many = True)
+        return Response(serializer.data)
