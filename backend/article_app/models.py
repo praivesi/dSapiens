@@ -28,7 +28,7 @@ class Introduction(models.Model):
     phone_number = models.CharField(max_length=100)
     github = models.CharField(max_length=100)
     blog = models.CharField(max_length=100)
-    description = models.CharField(max_length=10000)
+    description = models.TextField(default = '')
 
     def __str__(self):
         return self.name
