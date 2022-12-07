@@ -1,5 +1,5 @@
 <template>
-  
+    Algorithm, AI, BigData ...
 </template>
 
 <script>
