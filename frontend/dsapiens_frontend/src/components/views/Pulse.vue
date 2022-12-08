@@ -1,10 +1,10 @@
 <template>
-    About me.
+  Pulse from Health, Commit ...
 </template>
 
 <script>
 export default {
-    name: 'IntroView'
+    name: 'PulseView'
 }
 </script>
 
