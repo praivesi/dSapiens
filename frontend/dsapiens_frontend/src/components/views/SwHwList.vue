@@ -24,7 +24,7 @@
                 ></v-list-item-subtitle>
               </div>
               <div :style="{ width: 100 + 'vh' }"></div>
-              <v-btn>Edit</v-btn>
+              <v-btn @click="editClick(item)">Edit</v-btn>
             </div>
           </v-list-item-content>
         </v-list-item>
@@ -32,6 +32,16 @@
     </v-list>
   </v-card>
 </template>
+
+<script setup>
+import { defineEmits } from "vue";
+
+let emit = defineEmits(["edit"]);
+
+function editClick(item) {
+  emit("edit", item);
+}
+</script>
 
 <script>
 export default {
