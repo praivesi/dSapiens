@@ -1,13 +1,8 @@
 <template>
-  <!-- <v-app>
-    <v-main> -->
-        <div>
+    <div>
         <banner />
         <NavBar  />
-        <!-- <router-view></router-view> -->
-        </div>
-    <!-- </v-main>
-  </v-app> -->
+    </div>
 </template>
 
 <script>
