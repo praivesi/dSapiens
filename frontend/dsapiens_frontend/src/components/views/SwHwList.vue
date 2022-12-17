@@ -14,19 +14,26 @@
           :inset="item.inset"
         ></v-divider>
 
-        <v-list-item v-else :key="item.title" class="d-flex flex-row">
-          <v-list-item-content>
-            <div class="d-flex justify-space-between">
-              <div>
-                <v-list-item-title v-html="item.title"></v-list-item-title>
-                <v-list-item-subtitle
-                  v-html="item.subtitle"
-                ></v-list-item-subtitle>
-              </div>
-              <div :style="{ width: 100 + 'vh' }"></div>
-              <v-btn @click="editClick(item)">Edit</v-btn>
+        <v-list-item
+          v-else
+          :key="item.title"
+          class="d-flex flex-column justfy-space-between"
+        >
+          <v-list-item-content
+            :style="{ width: 100 + '%', 'background-color': 'red' }"
+            class="d-flex justify-space-between"
+          >
+            <div :style="{ width: 100 + '%' }">
+              <v-list-item-title v-html="item.title"></v-list-item-title>
+              <v-list-item-subtitle
+                v-html="item.subtitle"
+              ></v-list-item-subtitle>
             </div>
+            <!-- <div
+              :style="{ width: 100 + 'vh', 'background-color': 'blue' }"
+            ></div> -->
           </v-list-item-content>
+          <v-btn @click="editClick(item)">Edit</v-btn>
         </v-list-item>
       </template>
     </v-list>
