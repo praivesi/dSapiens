@@ -4,6 +4,7 @@
     v-if="state == 'edit'"
     :title="item.title"
     :content="item.content"
+    @close="close_edit"
   ></sw-hw-edit>
 </template>
 
@@ -25,6 +26,11 @@ let item = ref(null);
 function edit(edit_item) {
   state.value = "edit";
   item.value = edit_item;
+}
+
+function close_edit() {
+  state.value = "list";
+  item.value = null;
 }
 </script>
 

@@ -1,5 +1,8 @@
 <template>
-  <h1>{{ title }}</h1>
+  <div class="d-flex justify-space-between">
+    <h1>{{ title }}</h1>
+    <v-btn @click="$emit('close')">Back</v-btn>
+  </div>
   <div :style="{ height: 2 + 'vh' }"></div>
   <QuillEditor ref="quill" theme="snow" :style="{ height: 70 + 'vh' }" />
 </template>
