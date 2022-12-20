@@ -2,6 +2,7 @@
   <sw-hw-list v-if="state == 'list'" @edit="edit" @add="add"></sw-hw-list>
   <sw-hw-edit
     v-if="state == 'edit'"
+    :id="item.id"
     :title="item.title"
     :content="item.content"
     @close="closeEdit"
@@ -24,16 +25,19 @@ let state = ref("list");
 let item = ref(null);
 
 function add() {
-  state.value = "edit";
   item.value = {
+    id: -1,
     title: "",
     content: "",
   };
+
+  state.value = "edit";
 }
 
 function edit(edit_item) {
-  state.value = "edit";
   item.value = edit_item;
+
+  state.value = "edit";
 }
 
 function closeEdit() {
