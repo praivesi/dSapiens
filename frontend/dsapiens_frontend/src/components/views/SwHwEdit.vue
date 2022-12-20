@@ -1,14 +1,23 @@
 <template>
-  <div class="d-flex justify-space-between">
-    <h1>
-      <input v-model="targetTitle" />
-    </h1>
+  <div class="d-flex justify-space-between align-center">
+    <h2 :style="{ width: 90 + '%' }">
+      <input
+        class="pl-5 pr-5 pt-1 pb-1"
+        v-model="targetTitle"
+        :style="{
+          width: 100 + '%',
+          border: '1px solid grey',
+          'border-radius': 5 + 'px',
+        }"
+      />
+    </h2>
     <div>
       <v-btn @click="submit()">
-        <p v-if="targetId == -1">ADD</p>
-        <p v-else>UPDATE</p>
+        <v-icon>mdi-check-bold</v-icon>
       </v-btn>
-      <v-btn class="ml-5" @click="$emit('close')">Back</v-btn>
+      <v-btn class="ml-5" @click="$emit('close')"
+        ><v-icon>mdi-arrow-left-bold</v-icon></v-btn
+      >
     </div>
   </div>
   <div :style="{ height: 2 + 'vh' }"></div>
