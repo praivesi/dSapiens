@@ -40,11 +40,11 @@ let items = ref("");
 const store = useStore();
 
 onMounted(() => {
-  items.value = store.getters["GET_ARTICLES"];
+  items.value = store.getters["article/GET_ARTICLES"];
 });
 
 function remove(item) {
-  store.dispatch("REMOVE_ARTICLE", item.id);
+  store.dispatch("article/REMOVE_ARTICLE", item.id);
 }
 </script>
 

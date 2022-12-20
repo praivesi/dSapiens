@@ -70,14 +70,14 @@ onMounted(() => {
 async function submit() {
   if (targetId.value == -1) {
     // ADD
-    store.dispatch("ADD_ARTICLE", {
+    store.dispatch("article/ADD_ARTICLE", {
       author: targetAuthor.value,
       title: targetTitle.value,
       content: quill.value.getText(),
     });
   } else {
     // UPDATE
-    store.dispatch("UPDATE_ARTICLE", {
+    store.dispatch("article/UPDATE_ARTICLE", {
       author: targetAuthor.value,
       id: targetId.value,
       title: targetTitle.value,
