@@ -70,6 +70,15 @@ onMounted(() => {
 async function submit() {
   if (targetId.value == -1) {
     // ADD
+    store.commit("confirmModal/OPEN", {
+      title: "추가",
+      message: "새 글을 등록하시겠습니까?",
+    });
+
+    if (!store.getters["confirmModal/IS_CONFIRM"]) {
+      return;
+    }
+
     store.dispatch("article/ADD_ARTICLE", {
       author: targetAuthor.value,
       title: targetTitle.value,
@@ -77,6 +86,15 @@ async function submit() {
     });
   } else {
     // UPDATE
+    store.commit("confirmModal/OPEN", {
+      title: "추가",
+      message: "글을 업데이트하겠습니까?",
+    });
+
+    if (!store.getters["confirmModal/IS_CONFIRM"]) {
+      return;
+    }
+
     store.dispatch("article/UPDATE_ARTICLE", {
       author: targetAuthor.value,
       id: targetId.value,
