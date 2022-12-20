@@ -1,4 +1,8 @@
 <template>
+  <div class="d-flex justify-space-between ma-5">
+    <h1>Software / Hardward posts</h1>
+    <v-btn @click="$emit('add')">Add</v-btn>
+  </div>
   <v-card max-width="100%" class="mx-auto">
     <v-list>
       <template v-for="(item, index) in items">

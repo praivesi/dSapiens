@@ -1,5 +1,5 @@
 <template>
-  <sw-hw-list v-if="state == 'list'" @edit="edit"></sw-hw-list>
+  <sw-hw-list v-if="state == 'list'" @edit="edit" @add="add"></sw-hw-list>
   <sw-hw-edit
     v-if="state == 'edit'"
     :title="item.title"
@@ -23,6 +23,14 @@ import SwHwEdit from "./SwHwEdit.vue";
 let state = ref("list");
 let item = ref(null);
 
+function add() {
+  state.value = "edit";
+  item.value = {
+    title: "",
+    content: "",
+  };
+}
+
 function edit(edit_item) {
   state.value = "edit";
   item.value = edit_item;
@@ -30,7 +38,10 @@ function edit(edit_item) {
 
 function close_edit() {
   state.value = "list";
-  item.value = null;
+  item.value = {
+    title: "",
+    content: "",
+  };
 }
 </script>
 
