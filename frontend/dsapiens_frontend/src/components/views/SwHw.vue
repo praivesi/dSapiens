@@ -15,13 +15,31 @@ export default {
 </script>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 import SwHwList from "./SwHwList.vue";
 import SwHwEdit from "./SwHwEdit.vue";
+import axios from "redaxios";
 
 let state = ref("list");
 let item = ref(null);
+
+onMounted(() => {
+  axiosTest();
+});
+
+// axios Test
+function axiosTest() {
+  axios
+    .get("http://localhost:8000/api/articles/")
+    .then((response) => {
+      console.log("response => " + JSON.stringify(response));
+      console.log("response.data => " + JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log("error => " + error);
+    });
+}
 
 function add() {
   state.value = "edit";
