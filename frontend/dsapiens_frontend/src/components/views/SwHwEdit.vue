@@ -12,7 +12,7 @@
       />
     </h2>
     <div>
-      <v-btn @click="submit()">
+      <v-btn @click="targetId == -1 ? add() : update()">
         <v-icon>mdi-check-bold</v-icon>
       </v-btn>
       <v-btn class="ml-5" @click="$emit('close')"
@@ -32,13 +32,13 @@ import { QuillEditor, Quill } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 
 let props = defineProps({
-  author: {
-    Type: String,
-    default: "testAcc",
-  },
   id: {
     Type: Number,
     default: -1,
+  },
+  author: {
+    Type: String,
+    default: "Default Author",
   },
   title: {
     Type: String,
@@ -50,9 +50,8 @@ let props = defineProps({
   },
 });
 
-const emits = defineEmits(["close"]);
-
 const store = useStore();
+const emits = defineEmits(["close"]);
 
 let targetId = ref(-1);
 let targetAuthor = ref("");
@@ -67,43 +66,37 @@ onMounted(() => {
   quill.value.setText(props.content);
 });
 
-async function submit() {
-  if (targetId.value == -1) {
-    // ADD
-    store.commit("confirmModal/OPEN", {
-      title: "추가",
-      message: "새 글을 등록하시겠습니까?",
-    });
+async function add() {
+  store.commit("confirmModal/OPEN", {
+    title: "추가",
+    message: "새 글을 등록하시겠습니까?",
+    confirmedJob: () => {
+      store.dispatch("article/ADD_ARTICLE", {
+        author: targetAuthor.value,
+        title: targetTitle.value,
+        content: quill.value.getText(),
+      });
 
-    if (!store.getters["confirmModal/IS_CONFIRM"]) {
-      return;
-    }
+      emits("close");
+    },
+  });
+}
 
-    store.dispatch("article/ADD_ARTICLE", {
-      author: targetAuthor.value,
-      title: targetTitle.value,
-      content: quill.value.getText(),
-    });
-  } else {
-    // UPDATE
-    store.commit("confirmModal/OPEN", {
-      title: "추가",
-      message: "글을 업데이트하겠습니까?",
-    });
+async function update() {
+  store.commit("confirmModal/OPEN", {
+    title: "수정",
+    message: "글을 업데이트하겠습니까?",
+    confirmedJob: () => {
+      store.dispatch("article/UPDATE_ARTICLE", {
+        author: targetAuthor.value,
+        id: targetId.value,
+        title: targetTitle.value,
+        content: quill.value.getText(),
+      });
 
-    if (!store.getters["confirmModal/IS_CONFIRM"]) {
-      return;
-    }
-
-    store.dispatch("article/UPDATE_ARTICLE", {
-      author: targetAuthor.value,
-      id: targetId.value,
-      title: targetTitle.value,
-      content: quill.value.getText(),
-    });
-  }
-
-  emits("close");
+      emits("close");
+    },
+  });
 }
 </script>
 

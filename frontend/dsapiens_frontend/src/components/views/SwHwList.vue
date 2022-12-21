@@ -44,7 +44,13 @@ onMounted(() => {
 });
 
 function remove(item) {
-  store.dispatch("article/REMOVE_ARTICLE", item.id);
+  store.commit("confirmModal/OPEN", {
+    title: "삭제",
+    message: "글을 삭제하시겠습니까?",
+    confirmedJob: () => {
+      store.dispatch("article/REMOVE_ARTICLE", item.id);
+    },
+  });
 }
 </script>
 

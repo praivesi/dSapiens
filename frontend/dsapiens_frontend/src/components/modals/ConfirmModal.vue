@@ -18,23 +18,15 @@ import { useStore } from "vuex";
 
 const store = useStore();
 
-// let isOpen = ref(store.getters["confirmModal/IS_OPEN"]);
 let isOpen = computed(() => store.getters["confirmModal/IS_OPEN"]);
 let title = computed(() => store.getters["confirmModal/TITLE"]);
 let description = computed(() => store.getters["confirmModal/MESSAGE"]);
 
-// let title = ref(store.getters["confirmModal/TITLE"]);
-// let description = ref(store.getters["confirmModal/MESSAGE"]);
-
 function confirm() {
-  isOpen.value = false;
-
   store.commit("confirmModal/CLOSE", true);
 }
 
 function cancel() {
-  isOpen.value = false;
-
   store.commit("confirmModal/CLOSE", false);
 }
 </script>
