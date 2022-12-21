@@ -1,12 +1,22 @@
 <template>
-  <sw-hw-list v-if="state == 'list'" @add="add" @edit="edit"></sw-hw-list>
-  <sw-hw-edit
+  <list-view
+    v-if="state == 'list'"
+    @add="add"
+    @edit="edit"
+    @post="post"
+  ></list-view>
+  <post-view
+    v-if="state == 'post'"
+    :item="item"
+    @edit="edit"
+    @list="backToList"
+  ></post-view>
+  <edit-view
     v-if="state == 'edit'"
-    :id="item.id"
-    :title="item.title"
-    :content="item.content"
-    @close="closeEdit"
-  ></sw-hw-edit>
+    :item="item"
+    @post="post"
+    @list="backToList"
+  ></edit-view>
 </template>
 
 <script>
@@ -18,8 +28,9 @@ export default {
 <script setup>
 import { ref } from "vue";
 
-import SwHwList from "./SwHwList.vue";
-import SwHwEdit from "./SwHwEdit.vue";
+import ListView from "./article/ListView.vue";
+import EditView from "./article/EditView.vue";
+import PostView from "./article/PostView.vue";
 
 let state = ref("list");
 let item = ref(null);
@@ -40,9 +51,22 @@ function edit(edit_item) {
   state.value = "edit";
 }
 
-function closeEdit() {
+function post(post_item) {
+  console.log("post() before item.value => " + JSON.stringify(item.value));
+
+  item.value = post_item;
+
+  console.log("post() after item.value => " + JSON.stringify(item.value));
+  console.log("post() post_item => " + JSON.stringify(post_item));
+
+  state.value = "post";
+}
+
+function backToList() {
   state.value = "list";
   item.value = {
+    id: "",
+    author: "",
     title: "",
     content: "",
   };

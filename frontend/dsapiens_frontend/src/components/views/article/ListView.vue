@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex justify-space-between ma-5">
-    <h1>Software / Hardward posts</h1>
+    <h1>Software / Hardware posts</h1>
     <v-btn @click="$emit('add')"><v-icon>mdi-plus</v-icon></v-btn>
   </div>
   <v-card max-width="100%" class="mx-auto">
@@ -10,13 +10,18 @@
           class="d-flex align-center pl-2 pr-2"
           :style="{ height: 50 + 'px' }"
         >
-          <v-list-item-content :style="{ width: 100 + '%' }">
+          <v-list-item-content
+            @click="$emit('post', item)"
+            :style="{ width: 100 + '%' }"
+          >
+            <!-- <v-btn @click="$emit('post', item)" :style="{ width: 100 + '%' }"> -->
             <div :style="{ width: 100 + '%' }">
               <v-list-item-title v-html="item.title"></v-list-item-title>
               <v-list-item-subtitle
                 v-html="item.subtitle"
               ></v-list-item-subtitle>
             </div>
+            <!-- </v-btn> -->
           </v-list-item-content>
           <div :style="{ width: 100 + '%' }"></div>
           <v-btn @click="$emit('edit', item)"
