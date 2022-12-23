@@ -9,13 +9,13 @@
     v-if="state == 'post'"
     :item="item"
     @edit="edit"
-    @list="backToList"
+    @list="list"
   ></post-view>
   <edit-view
     v-if="state == 'edit'"
     :item="item"
     @post="post"
-    @list="backToList"
+    @list="list"
   ></edit-view>
 </template>
 
@@ -38,6 +38,7 @@ let item = ref(null);
 function add() {
   item.value = {
     id: -1,
+    author: "",
     title: "",
     content: "",
   };
@@ -52,18 +53,14 @@ function edit(edit_item) {
 }
 
 function post(post_item) {
-  console.log("post() before item.value => " + JSON.stringify(item.value));
-
   item.value = post_item;
-
-  console.log("post() after item.value => " + JSON.stringify(item.value));
-  console.log("post() post_item => " + JSON.stringify(post_item));
 
   state.value = "post";
 }
 
-function backToList() {
+function list() {
   state.value = "list";
+
   item.value = {
     id: "",
     author: "",

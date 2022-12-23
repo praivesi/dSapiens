@@ -54,6 +54,10 @@ export default {
 
           commit("ADD_ARTICLE", response.data);
 
+          if (params.routineAfterSucceed != null) {
+            params.routineAfterSucceed(response.data);
+          }
+
           return response.data;
         })
         .catch((error) => {
@@ -67,9 +71,11 @@ export default {
       articleApi
         .update(params.id, params.author, params.title, params.content)
         .then((response) => {
-          console.log("updated article => " + JSON.stringify(response.data));
-
           commit("UPDATE_ARTICLE", response.data);
+
+          if (params.routineAfterSucceed != null) {
+            params.routineAfterSucceed(response.data);
+          }
 
           return response.data;
         })
@@ -79,8 +85,6 @@ export default {
     },
 
     REMOVE_ARTICLE({ commit }, id) {
-      console.log("id => " + id);
-
       articleApi
         .remove(id)
         .then((response) => {
