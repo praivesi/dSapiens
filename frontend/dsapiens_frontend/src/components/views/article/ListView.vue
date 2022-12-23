@@ -7,7 +7,7 @@
     <v-list-item-group v-model="items">
       <v-list-item v-for="(item, i) in items" :key="i">
         <div
-          class="d-flex align-center pl-2 pr-2"
+          class="ds-list-item-cont d-flex align-center pl-2 pr-2"
           :style="{ height: 50 + 'px' }"
         >
           <v-list-item-content
@@ -27,7 +27,7 @@
           <v-btn @click="$emit('edit', item)"
             ><v-icon>mdi-playlist-edit</v-icon></v-btn
           >
-          <v-btn class="ml-5" @click="remove(item)"
+          <v-btn class="ds-btn ml-5" @click="remove(item)"
             ><v-icon>mdi-close</v-icon></v-btn
           >
         </div>
