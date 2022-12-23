@@ -19,4 +19,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+              @import "./src/assets/scss/common.scss";
+              @import "./src/assets/scss/variables.scss";`,
+      },
+    },
+  },
 });
