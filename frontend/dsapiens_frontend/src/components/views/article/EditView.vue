@@ -1,14 +1,9 @@
 <template>
   <div class="d-flex justify-space-between align-center">
-    <h2 :style="{ width: 80 + '%' }">
+    <h2 class="ds-80wp">
       <input
-        class="pl-5 pr-5 pt-1 pb-1"
+        class="edit-title pl-5 pr-5 pt-1 pb-1 ds-100wp"
         v-model="targetItem.title"
-        :style="{
-          width: 100 + '%',
-          border: '1px solid grey',
-          'border-radius': 5 + 'px',
-        }"
       />
     </h2>
     <div>
@@ -23,8 +18,8 @@
       >
     </div>
   </div>
-  <div :style="{ height: 2 + 'vh' }"></div>
-  <QuillEditor ref="quill" theme="snow" :style="{ height: 70 + 'vh' }" />
+  <div class="ds-2hv"></div>
+  <QuillEditor ref="quill" theme="snow" class="ds-70hv" />
 </template>
 
 <script setup>
@@ -115,4 +110,9 @@ async function update() {
 }
 </script>
 
-<style></style>
+<style scoped>
+.edit-title {
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+</style>

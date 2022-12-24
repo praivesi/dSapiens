@@ -18,14 +18,24 @@
 .ds {
   @for $i from 1 through 100 {
     &-#{$i}wp {
-      width: percentage($i);
+      width: 1% * $i;
     }
     &-#{$i}hp {
-      height: percentage($i);
+      height: 1% * $i;
     }
     &-#{$i}whp {
-      width: percentage($i);
-      height: percentage($i);
+      width: 1% * $i;
+      height: 1% * $i;
+    }
+    &-#{$i}wv {
+      width: 1vh * $i;
+    }
+    &-#{$i}hv {
+      height: 1vh * $i;
+    }
+    &-#{$i}whv {
+      width: 1vh * $i;
+      height: 1vh * $i;
     }
     &-#{(10 * $i)}wx {
       width: 10px * $i;
