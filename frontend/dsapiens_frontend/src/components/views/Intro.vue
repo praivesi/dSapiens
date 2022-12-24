@@ -1,13 +1,20 @@
-<template>
-    About me.
-</template>
+<template>About me.</template>
 
 <script>
 export default {
-    name: 'IntroView'
-}
+  name: "IntroView",
+};
 </script>
 
-<style>
+<script setup>
+import { onMounted } from "vue";
+import { useStore } from "vuex";
 
-</style>
+const store = useStore();
+
+onMounted(() => {
+  store.dispatch("LOAD_ARTICLES");
+});
+</script>
+
+<style></style>
