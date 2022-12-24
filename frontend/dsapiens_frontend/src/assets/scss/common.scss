@@ -14,3 +14,28 @@
   color: white;
   border-radius: 5px;
 }
+
+.ds {
+  @for $i from 1 through 100 {
+    &-#{$i}wp {
+      width: percentage($i);
+    }
+    &-#{$i}hp {
+      height: percentage($i);
+    }
+    &-#{$i}whp {
+      width: percentage($i);
+      height: percentage($i);
+    }
+    &-#{(10 * $i)}wx {
+      width: 10px * $i;
+    }
+    &-#{(10 * $i)}hx {
+      height: 10px * $i;
+    }
+    &-#{(10 * $i)}whx {
+      width: 10px * $i;
+      height: 10px * $i;
+    }
+  }
+}

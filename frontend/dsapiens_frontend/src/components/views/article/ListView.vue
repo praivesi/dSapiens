@@ -6,24 +6,15 @@
   <v-card max-width="100%" class="mx-auto">
     <v-list-item-group v-model="items">
       <v-list-item v-for="(item, i) in items" :key="i">
-        <div
-          class="ds-list-item-cont d-flex align-center pl-2 pr-2"
-          :style="{ height: 50 + 'px' }"
-        >
-          <v-list-item-content
-            @click="$emit('post', item)"
-            :style="{ width: 100 + '%' }"
-          >
-            <!-- <v-btn @click="$emit('post', item)" :style="{ width: 100 + '%' }"> -->
-            <div :style="{ width: 100 + '%' }">
+        <div class="ds-list-item-cont ds-50hx d-flex align-center pl-2 pr-2">
+          <v-list-item-content class="ds-100wp" @click="$emit('post', item)">
+            <div>
               <v-list-item-title v-html="item.title"></v-list-item-title>
               <v-list-item-subtitle
                 v-html="item.subtitle"
               ></v-list-item-subtitle>
             </div>
-            <!-- </v-btn> -->
           </v-list-item-content>
-          <div :style="{ width: 100 + '%' }"></div>
           <v-btn @click="$emit('edit', item)"
             ><v-icon>mdi-playlist-edit</v-icon></v-btn
           >
