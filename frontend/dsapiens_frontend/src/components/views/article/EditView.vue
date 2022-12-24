@@ -10,10 +10,10 @@
       <v-btn @click="targetItem.id == -1 ? add() : update()">
         <v-icon>mdi-check-bold</v-icon>
       </v-btn>
-      <v-btn class="ml-5" @click="$emit('post', targetItem)">
+      <v-btn class="ml-5" @click="post(targetItem)">
         <v-icon>mdi-content-paste</v-icon>
       </v-btn>
-      <v-btn class="ml-5" @click="$emit('list')"
+      <v-btn class="ml-5" @click="list()"
         ><v-icon>mdi-format-list-bulleted</v-icon></v-btn
       >
     </div>
@@ -74,7 +74,7 @@ onMounted(() => {
   quill.value.setText(targetItem.content);
 });
 
-async function add() {
+function add() {
   store.commit("confirmModal/OPEN", {
     title: "추가",
     message: "새 글을 등록하시겠습니까?",
@@ -91,7 +91,7 @@ async function add() {
   });
 }
 
-async function update() {
+function update() {
   store.commit("confirmModal/OPEN", {
     title: "수정",
     message: "글을 업데이트하겠습니까?",
@@ -105,6 +105,26 @@ async function update() {
           emits("post", data);
         },
       });
+    },
+  });
+}
+
+function post(item) {
+  store.commit("confirmModal/OPEN", {
+    title: "본문 보기",
+    message: "본문으로 이동하시겠습니까?",
+    confirmedJob: (item) => {
+      emits("post", item);
+    },
+  });
+}
+
+function list() {
+  store.commit("confirmModal/OPEN", {
+    title: "목록 보기",
+    message: "목록으로 이동하시겠습니까?",
+    confirmedJob: () => {
+      emits("list");
     },
   });
 }
