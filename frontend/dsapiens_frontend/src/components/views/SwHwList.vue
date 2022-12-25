@@ -4,37 +4,22 @@
     <v-btn @click="$emit('add')">Add</v-btn>
   </div>
   <v-card max-width="100%" class="mx-auto">
-    <v-list>
-      <template v-for="(item, index) in items">
-        <v-subheader
-          v-if="item.header"
-          :key="item.header"
-          v-text="item.header"
-        ></v-subheader>
-
-        <v-divider
-          v-else-if="item.divider"
-          :key="index"
-          :inset="item.inset"
-        ></v-divider>
-
-        <v-list-item v-else :key="item.title">
-          <div class="d-flex">
-            <v-list-item-content :style="{ width: 100 + '%' }">
-              <div :style="{ width: 100 + '%' }">
-                <v-list-item-title v-html="item.title"></v-list-item-title>
-                <v-list-item-subtitle
-                  v-html="item.subtitle"
-                ></v-list-item-subtitle>
-              </div>
-            </v-list-item-content>
-            <div :style="{ width: 100 + '%' }"></div>
-            <!-- <v-btn @click="editClick(item)">Edit</v-btn> -->
-            <v-btn @click="$emit('edit', item)">Edit</v-btn>
-          </div>
-        </v-list-item>
-      </template>
-    </v-list>
+    <v-list-item-group v-model="items">
+      <v-list-item v-for="(item, i) in items" :key="i">
+        <div class="d-flex">
+          <v-list-item-content :style="{ width: 100 + '%' }">
+            <div :style="{ width: 100 + '%' }">
+              <v-list-item-title v-html="item.title"></v-list-item-title>
+              <v-list-item-subtitle
+                v-html="item.subtitle"
+              ></v-list-item-subtitle>
+            </div>
+          </v-list-item-content>
+          <div :style="{ width: 100 + '%' }"></div>
+          <v-btn @click="$emit('edit', item)">Edit</v-btn>
+        </div>
+      </v-list-item>
+    </v-list-item-group>
   </v-card>
 </template>
 
@@ -45,20 +30,9 @@ import { useStore } from "vuex";
 let items = ref("");
 const store = useStore();
 
-// let emit = defineEmits(["edit"]);
-
 onMounted(() => {
   items.value = store.getters["GET_ARTICLES"];
-  //   loadList()
 });
-
-// function editClick(item) {
-//   emit("edit", item);
-// }
-
-// function loadList() {
-//   items.value = store.getters["GET_ARTICLES"];
-// }
 </script>
 
 <script>
