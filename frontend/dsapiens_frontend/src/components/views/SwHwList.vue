@@ -17,6 +17,7 @@
           </v-list-item-content>
           <div :style="{ width: 100 + '%' }"></div>
           <v-btn @click="$emit('edit', item)">Edit</v-btn>
+          <v-btn class="ml-5" @click="remove(item)">Remove</v-btn>
         </div>
       </v-list-item>
     </v-list-item-group>
@@ -33,22 +34,15 @@ const store = useStore();
 onMounted(() => {
   items.value = store.getters["GET_ARTICLES"];
 });
+
+function remove(item) {
+  store.dispatch("REMOVE_ARTICLE", item.id);
+}
 </script>
 
 <script>
 export default {
   name: "SwHwListView",
-  data: () => ({
-    // items: [
-    //   {
-    //     avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-    //     title: "Brunch this weekend?",
-    //     subtitle: `<span class="text--primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-    //     content: "Bruch Content~~~~~~~~~~~~~~~~~~~~~~~!!",
-    //   },
-    //   { divider: true, inset: true },
-    // ],
-  }),
 };
 </script>
 

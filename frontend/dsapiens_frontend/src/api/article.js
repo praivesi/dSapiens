@@ -4,16 +4,17 @@ export async function get() {
   return http.get("/articles");
 }
 
-export async function add(title, content) {
+export async function add(author, title, content) {
   return http.post("/articles/", {
+    author,
     title,
     content,
   });
 }
 
-export async function update(id, title, content) {
-  return http.put("/articles/", {
-    id,
+export async function update(id, author, title, content) {
+  return http.put("/articles/" + id + "/", {
+    author,
     title,
     content,
   });

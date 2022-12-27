@@ -1,5 +1,5 @@
 <template>
-  <sw-hw-list v-if="state == 'list'" @edit="edit" @add="add"></sw-hw-list>
+  <sw-hw-list v-if="state == 'list'" @add="add" @edit="edit"></sw-hw-list>
   <sw-hw-edit
     v-if="state == 'edit'"
     :id="item.id"
