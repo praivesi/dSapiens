@@ -13,7 +13,7 @@ import { useStore } from "vuex";
 const store = useStore();
 
 onMounted(() => {
-  store.dispatch("LOAD_ARTICLES");
+  store.dispatch("article/LOAD_ARTICLES");
 });
 </script>
 
