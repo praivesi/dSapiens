@@ -42,6 +42,8 @@ export default {
         console.log("loaded articles => " + JSON.stringify(response.data));
 
         commit("LOAD_ARTICLES", response.data);
+
+        return response.data;
       });
     },
     ADD_ARTICLE({ commit }, params) {
@@ -51,6 +53,8 @@ export default {
           console.log("added article => " + JSON.stringify(response.data));
 
           commit("ADD_ARTICLE", response.data);
+
+          return response.data;
         })
         .catch((error) => {
           console.log(error);
@@ -66,6 +70,8 @@ export default {
           console.log("updated article => " + JSON.stringify(response.data));
 
           commit("UPDATE_ARTICLE", response.data);
+
+          return response.data;
         })
         .catch((error) => {
           console.log(error);
@@ -79,6 +85,8 @@ export default {
         .remove(id)
         .then((response) => {
           console.log("deleted article => " + JSON.stringify(response.data));
+
+          return response.data;
         })
         .catch((error) => {
           console.log(error);
