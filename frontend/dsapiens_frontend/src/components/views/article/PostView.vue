@@ -51,7 +51,6 @@ let targetItem = reactive({
 });
 
 onMounted(() => {
-  //   targetItem = props.item;
   targetItem.id = props.item.id;
   targetItem.author = props.item.author;
   targetItem.title = props.item.title;
