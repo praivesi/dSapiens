@@ -10,13 +10,7 @@
       <div class="menu-item"><router-link to="/">Setting</router-link></div>
   </nav> -->
   <!-- bg-color='rgb(50, 100, 185)' -->
-  <v-tabs
-    v-model="tab"
-    color="white"
-    fixed-tabs
-    bg-color="indigo-darken-2"
-    :style="{ width: 100 + '%' }"
-  >
+  <v-tabs v-model="tab" class="navbar" fixed-tabs>
     <v-tab value="introduction">Introduction</v-tab>
     <v-tab value="swHw">Software / Hardware</v-tab>
     <v-tab value="advancedCS">Advanced CS</v-tab>
@@ -76,4 +70,9 @@ import Setting from "../views/Setting.vue";
 let tab = ref("");
 </script>
 
-<style></style>
+<style lang="scss">
+.navbar {
+  color: white;
+  background-color: $primary-color;
+}
+</style>
