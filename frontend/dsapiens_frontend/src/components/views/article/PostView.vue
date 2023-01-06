@@ -1,12 +1,7 @@
 <template>
   <div class="d-flex justify-space-between align-center">
-    <h1 :style="{ width: 90 + '%' }">
-      <p
-        class="pl-5 pr-5 pt-1 pb-1"
-        :style="{
-          width: 100 + '%',
-        }"
-      >
+    <h1 class="ds-60wp">
+      <p class="pl-5 pr-5 pt-1 pb-1 ds-100wp">
         {{ targetItem.title }}
       </p>
     </h1>
@@ -19,8 +14,8 @@
       >
     </div>
   </div>
-  <div :style="{ height: 2 + 'vh' }"></div>
-  <div :style="{ height: 70 + 'vh' }">
+  <div class="ds-2hv"></div>
+  <div class="ds-80hv">
     <p>{{ targetItem.content }}</p>
   </div>
 </template>
