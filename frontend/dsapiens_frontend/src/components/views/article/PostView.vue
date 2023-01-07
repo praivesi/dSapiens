@@ -22,7 +22,6 @@
 
 <script setup>
 import { reactive, onMounted, defineProps } from "vue";
-import { useStore } from "vuex";
 
 let props = defineProps({
   item: {
@@ -35,8 +34,6 @@ let props = defineProps({
     },
   },
 });
-
-const store = useStore();
 
 let targetItem = reactive({
   id: -1,
