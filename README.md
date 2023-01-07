@@ -35,6 +35,7 @@
 6-2. Enter django server on Chrome (http://localhost:8000)
 
 # Run Front-End
+
 1. Go to dsapiens/frontend/dsapiens_frontend/
 
 > cd ./frontend/dsaipens_frontend/
@@ -43,3 +44,18 @@
 
 > npm run dev
 
+# Run Back-end
+
+1. Go to dsapiens/backend/
+
+> cd dsapiens/backend/
+
+2. Activate virtual environment (.venv)
+
+> source .venv/bin/activate
+
+# Docs
+
+1. VueQuill
+   Props > https://vueup.github.io/vue-quill/api/
+   Delta Docs > https://quilljs.com/docs/delta/
