@@ -13,6 +13,17 @@ export async function add(author, title, content) {
 }
 
 export async function update(id, author, title, content) {
+  console.log(
+    "update article => id: " +
+      id +
+      ", author: " +
+      author +
+      ", title: " +
+      title +
+      ", content: " +
+      content
+  );
+
   return http.put("/articles/" + id + "/", {
     author,
     title,

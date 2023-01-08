@@ -1,7 +1,9 @@
 <template>
   <v-dialog v-model="isOpen" width="500">
-    <v-card>
-      <v-card-title class="text-h5 grey lighten-2"> {{ title }} </v-card-title>
+    <v-card class="ds-200hx">
+      <v-card-title class="modal-title grey lighten-2">
+        {{ title }}
+      </v-card-title>
 
       <v-card-text> {{ description }} </v-card-text>
       <div class="d-flex justify-end ma-3">
@@ -31,4 +33,10 @@ function cancel() {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.modal-title {
+  color: white;
+  background-color: $primary-color;
+  font-weight: bold;
+}
+</style>

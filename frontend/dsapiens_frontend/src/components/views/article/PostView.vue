@@ -16,12 +16,16 @@
   </div>
   <div class="ds-2hv"></div>
   <div class="ds-80hv">
-    <p>{{ targetItem.content }}</p>
+    <!-- <p>{{ targetItem.content }}</p> -->
+    <QuillEditor ref="quill" theme="bubble" class="ds-70hv" />
   </div>
 </template>
 
 <script setup>
-import { reactive, onMounted, defineProps } from "vue";
+import { ref, reactive, onMounted, defineProps } from "vue";
+
+import { QuillEditor, Quill } from "@vueup/vue-quill";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
 
 let props = defineProps({
   item: {
@@ -42,11 +46,15 @@ let targetItem = reactive({
   content: "Default Content",
 });
 
+const quill = ref(null);
+
 onMounted(() => {
   targetItem.id = props.item.id;
   targetItem.author = props.item.author;
   targetItem.title = props.item.title;
   targetItem.content = props.item.content;
+
+  quill.value.setText(targetItem.content);
 });
 </script>
 
