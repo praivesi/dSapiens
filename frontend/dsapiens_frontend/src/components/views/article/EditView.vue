@@ -71,7 +71,7 @@ onMounted(() => {
     targetItem.content = "Default Content";
   }
 
-  quill.value.setText(targetItem.content);
+  quill.value.setHTML(targetItem.content);
 });
 
 function add() {
@@ -82,7 +82,7 @@ function add() {
       store.dispatch("article/ADD_ARTICLE", {
         author: targetItem.author,
         title: targetItem.title,
-        content: quill.value.getText(),
+        content: quill.value.getHTML(),
         routineAfterSucceed: (data) => {
           emits("post", data);
         },
@@ -100,7 +100,7 @@ function update() {
         id: targetItem.id,
         author: targetItem.author,
         title: targetItem.title,
-        content: quill.value.getText(),
+        content: quill.value.getHTML(),
         routineAfterSucceed: (data) => {
           emits("post", data);
         },
