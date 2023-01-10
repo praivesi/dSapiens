@@ -54,7 +54,7 @@ onMounted(() => {
   targetItem.title = props.item.title;
   targetItem.content = props.item.content;
 
-  quill.value.setText(targetItem.content);
+  quill.value.setHTML(targetItem.content);
 });
 </script>
 
