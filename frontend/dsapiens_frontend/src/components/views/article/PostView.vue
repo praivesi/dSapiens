@@ -33,8 +33,8 @@ let props = defineProps({
     default: {
       id: -1,
       author: "Default Author",
-      title: "Default Title",
-      content: "Default Content",
+      title: "",
+      content: "",
     },
   },
 });
@@ -42,8 +42,8 @@ let props = defineProps({
 let targetItem = reactive({
   id: -1,
   author: "Default Author",
-  title: "Default Title",
-  content: "Default Content",
+  title: "",
+  content: "",
 });
 
 const quill = ref(null);
