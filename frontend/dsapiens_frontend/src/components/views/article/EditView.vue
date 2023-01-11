@@ -35,8 +35,8 @@ let props = defineProps({
     default: {
       id: -1,
       author: "Default Author",
-      title: "Default Title",
-      content: "Default Content",
+      title: "",
+      content: "",
     },
   },
 });
@@ -47,8 +47,8 @@ const emits = defineEmits(["post"]);
 let targetItem = reactive({
   id: -1,
   author: "Default Author",
-  title: "Default Title",
-  content: "Default Content",
+  title: "",
+  content: "",
 });
 
 const quill = ref(null);
@@ -58,18 +58,6 @@ onMounted(() => {
   targetItem.author = props.item.author;
   targetItem.title = props.item.title;
   targetItem.content = props.item.content;
-
-  if (targetItem.author == "") {
-    targetItem.author = "Default Author";
-  }
-
-  if (targetItem.title == "") {
-    targetItem.title = "Default Title";
-  }
-
-  if (targetItem.content == "") {
-    targetItem.content = "Default Content";
-  }
 
   quill.value.setHTML(targetItem.content);
 });

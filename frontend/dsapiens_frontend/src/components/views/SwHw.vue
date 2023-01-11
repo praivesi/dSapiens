@@ -38,7 +38,7 @@ let item = ref(null);
 function add() {
   item.value = {
     id: -1,
-    author: "",
+    author: "Default Author",
     title: "",
     content: "",
   };
@@ -63,7 +63,7 @@ function list() {
 
   item.value = {
     id: "",
-    author: "",
+    author: "Default Author",
     title: "",
     content: "",
   };
