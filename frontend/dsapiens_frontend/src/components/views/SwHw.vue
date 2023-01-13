@@ -27,6 +27,7 @@ export default {
 
 <script setup>
 import { ref } from "vue";
+import { ArticleModel } from "@/components/models/article-model.js";
 
 import ListView from "./article/ListView.vue";
 import EditView from "./article/EditView.vue";
@@ -36,12 +37,7 @@ let state = ref("list");
 let item = ref(null);
 
 function add() {
-  item.value = {
-    id: -1,
-    author: "Default Author",
-    title: "",
-    content: "",
-  };
+  item.value = new ArticleModel();
 
   state.value = "edit";
 }
@@ -61,12 +57,7 @@ function post(post_item) {
 function list() {
   state.value = "list";
 
-  item.value = {
-    id: "",
-    author: "Default Author",
-    title: "",
-    content: "",
-  };
+  item.value = new ArticleModel();
 }
 </script>
 

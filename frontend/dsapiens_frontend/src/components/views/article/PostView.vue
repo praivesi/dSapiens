@@ -16,43 +16,30 @@
   </div>
   <div class="ds-2hv"></div>
   <div class="ds-80hv">
-    <!-- <p>{{ targetItem.content }}</p> -->
     <QuillEditor ref="quill" theme="bubble" class="ds-70hv" />
   </div>
 </template>
 
 <script setup>
 import { ref, reactive, onMounted, defineProps } from "vue";
+import { ArticleModel } from "@/components/models/article-model.js";
 
 import { QuillEditor, Quill } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 
 let props = defineProps({
   item: {
-    Type: Object,
-    default: {
-      id: -1,
-      author: "Default Author",
-      title: "",
-      content: "",
-    },
+    Type: ArticleModel,
+    default: new ArticleModel(),
   },
 });
 
-let targetItem = reactive({
-  id: -1,
-  author: "Default Author",
-  title: "",
-  content: "",
-});
+let targetItem = reactive(new ArticleModel());
 
 const quill = ref(null);
 
 onMounted(() => {
-  targetItem.id = props.item.id;
-  targetItem.author = props.item.author;
-  targetItem.title = props.item.title;
-  targetItem.content = props.item.content;
+  targetItem.copy(props.item);
 
   quill.value.setHTML(targetItem.content);
 });

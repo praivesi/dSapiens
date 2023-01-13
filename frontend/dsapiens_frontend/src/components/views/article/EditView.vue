@@ -25,39 +25,27 @@
 <script setup>
 import { ref, reactive, onMounted, defineProps } from "vue";
 import { useStore } from "vuex";
+import { ArticleModel } from "@/components/models/article-model.js";
 
 import { QuillEditor, Quill } from "@vueup/vue-quill";
 import "@vueup/vue-quill/dist/vue-quill.snow.css";
 
 let props = defineProps({
   item: {
-    Type: Object,
-    default: {
-      id: -1,
-      author: "Default Author",
-      title: "",
-      content: "",
-    },
+    Type: ArticleModel,
+    default: new ArticleModel(),
   },
 });
 
 const store = useStore();
 const emits = defineEmits(["post"]);
 
-let targetItem = reactive({
-  id: -1,
-  author: "Default Author",
-  title: "",
-  content: "",
-});
+let targetItem = reactive(new ArticleModel());
 
 const quill = ref(null);
 
 onMounted(() => {
-  targetItem.id = props.item.id;
-  targetItem.author = props.item.author;
-  targetItem.title = props.item.title;
-  targetItem.content = props.item.content;
+  targetItem.copy(props.item);
 
   quill.value.setHTML(targetItem.content);
 });
