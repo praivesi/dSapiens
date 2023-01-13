@@ -66,11 +66,11 @@ export default {
     },
 
     UPDATE_ARTICLE({ commit }, params) {
-      console.log("UPDATE_ARTICLE params => " + JSON.stringify(params));
-
       articleApi
         .update(params.id, params.author, params.title, params.content)
         .then((response) => {
+          console.log("update article => " + JSON.stringify(response.data));
+
           commit("UPDATE_ARTICLE", response.data);
 
           if (params.routineAfterSucceed != null) {
