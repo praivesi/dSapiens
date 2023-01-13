@@ -101,7 +101,7 @@ function post(item) {
   store.commit("confirmModal/OPEN", {
     title: "본문 보기",
     message: "본문으로 이동하시겠습니까?",
-    confirmedJob: (item) => {
+    confirmedJob: () => {
       emits("post", item);
     },
   });
