@@ -26,11 +26,13 @@
       </v-list-item>
     </v-list-item-group>
   </v-card>
+  <pagination-comp></pagination-comp>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useStore } from "vuex";
+import PaginationComp from "@/components/pagination/Pagination.vue";
 
 let items = ref("");
 const store = useStore();
