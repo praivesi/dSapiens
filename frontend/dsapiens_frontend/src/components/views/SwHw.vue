@@ -1,23 +1,26 @@
 <template>
-  <list-view
-    v-if="state == 'list'"
-    title="Software / Hardware posts"
-    @add="add"
-    @edit="edit"
-    @post="post"
-  ></list-view>
-  <post-view
-    v-if="state == 'post'"
-    :item="item"
-    @edit="edit"
-    @list="list"
-  ></post-view>
-  <edit-view
-    v-if="state == 'edit'"
-    :item="item"
-    @post="post"
-    @list="list"
-  ></edit-view>
+  <div class="ds-100hp" :style="{ height: 100 + '%' }">
+    <list-view
+      v-if="state == 'list'"
+      class="ds-100hp"
+      title="Software / Hardware posts"
+      @add="add"
+      @edit="edit"
+      @post="post"
+    ></list-view>
+    <post-view
+      v-if="state == 'post'"
+      :item="item"
+      @edit="edit"
+      @list="list"
+    ></post-view>
+    <edit-view
+      v-if="state == 'edit'"
+      :item="item"
+      @post="post"
+      @list="list"
+    ></edit-view>
+  </div>
 </template>
 
 <script>

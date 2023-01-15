@@ -22,7 +22,7 @@
     <v-tab value="setting">Setting</v-tab>
   </v-tabs>
 
-  <v-card-text>
+  <v-card-text class="ds-100hp">
     <v-window v-model="tab">
       <v-window-item value="introduction">
         <intro />
