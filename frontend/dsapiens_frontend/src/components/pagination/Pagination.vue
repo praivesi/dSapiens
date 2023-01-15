@@ -1,7 +1,11 @@
 <template>
   <div class="ds-pagination d-flex justify-center">
-    <v-btn class="ds-lightgrey"><v-icon>mdi-chevron-double-left</v-icon></v-btn>
-    <v-btn class="ds-lightgrey"><v-icon>mdi-chevron-left</v-icon></v-btn>
+    <v-btn class="ds-lightgrey" @click="frontClick()"
+      ><v-icon>mdi-chevron-double-left</v-icon></v-btn
+    >
+    <v-btn class="ds-lightgrey" @click="prevClick()"
+      ><v-icon>mdi-chevron-left</v-icon></v-btn
+    >
     <div v-for="page in pages" :key="page">
       <v-btn
         :class="page == cur_page ? 'ds-grey' : 'ds-lightgrey'"
@@ -9,8 +13,10 @@
         >{{ page }}</v-btn
       >
     </div>
-    <v-btn class="ds-lightgrey"><v-icon>mdi-chevron-right</v-icon></v-btn>
-    <v-btn class="ds-lightgrey"
+    <v-btn class="ds-lightgrey" @click="nextClick()"
+      ><v-icon>mdi-chevron-right</v-icon></v-btn
+    >
+    <v-btn class="ds-lightgrey" @click="tailClick()"
       ><v-icon>mdi-chevron-double-right</v-icon></v-btn
     >
   </div>
@@ -34,6 +40,29 @@ onMounted(() => {
 
 function pageClick(page) {
   cur_page.value = page;
+}
+
+function prevClick() {
+  if (cur_page.value == 1) {
+    return;
+  }
+
+  cur_page.value -= 1;
+}
+
+function nextClick() {
+  if (cur_page.value == 5) {
+    return;
+  }
+  cur_page.value += 1;
+}
+
+function frontClick() {
+  cur_page.value = 1;
+}
+
+function tailClick() {
+  cur_page.value = 5;
 }
 </script>
 
