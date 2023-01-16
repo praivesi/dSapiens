@@ -1,6 +1,7 @@
 <template>
   <div class="d-flex justify-space-between ma-5">
-    <h1>Software / Hardware posts</h1>
+    <!-- <h1>Software / Hardware posts</h1> -->
+    <h1>{{ title }}</h1>
     <v-btn @click="$emit('add')"><v-icon>mdi-plus</v-icon></v-btn>
   </div>
   <v-card max-width="100%" class="mx-auto">
@@ -33,6 +34,13 @@
 import { ref, onMounted, watch } from "vue";
 import { useStore } from "vuex";
 import PaginationComp from "@/components/pagination/Pagination.vue";
+
+let props = defineProps({
+  title: {
+    type: String,
+    default: "List Title",
+  },
+});
 
 let items = ref("");
 const store = useStore();

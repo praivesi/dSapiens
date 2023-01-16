@@ -1,6 +1,7 @@
 <template>
   <list-view
     v-if="state == 'list'"
+    title="Software / Hardware posts"
     @add="add"
     @edit="edit"
     @post="post"
@@ -38,6 +39,7 @@ let item = ref(null);
 
 function add() {
   item.value = new ArticleModel();
+  item.value.genre = 1;
 
   state.value = "edit";
 }
@@ -58,6 +60,7 @@ function list() {
   state.value = "list";
 
   item.value = new ArticleModel();
+  item.value.genre = 1;
 }
 </script>
 
