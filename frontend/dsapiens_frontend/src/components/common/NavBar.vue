@@ -1,58 +1,26 @@
 <template>
-  <!-- <nav id="nav">
-      <div class="menu-item"><router-link to="/">Introduction</router-link></div>
-      <div class="menu-item"><router-link to="/swHw">Software / Hardware</router-link></div>
-      <div class="menu-item"><router-link to="/advancedCS">Advanced CS</router-link></div>
-      <div class="menu-item"><router-link to="/science">Science</router-link></div>
-      <div class="menu-item"><router-link to="/economics">Economics</router-link></div>
-      <div class="menu-item"><router-link to="/philosophy">Philosophy</router-link></div>
-      <div class="menu-item"><router-link to="/life">Life</router-link></div>
-      <div class="menu-item"><router-link to="/">Setting</router-link></div>
-  </nav> -->
-  <!-- bg-color='rgb(50, 100, 185)' -->
-  <v-tabs v-model="tab" class="navbar" fixed-tabs>
-    <v-tab value="introduction">Introduction</v-tab>
-    <v-tab value="swHw">Software / Hardware</v-tab>
-    <v-tab value="advancedCS">Advanced CS</v-tab>
-    <v-tab value="science">Science</v-tab>
-    <v-tab value="economics">Economics</v-tab>
-    <v-tab value="philosophy">Philosophy</v-tab>
-    <v-tab value="life">Life</v-tab>
-    <v-tab value="pulse">Pulse</v-tab>
-    <v-tab value="setting">Setting</v-tab>
-  </v-tabs>
-
-  <v-card-text class="ds-100hp">
-    <v-window v-model="tab">
-      <v-window-item value="introduction">
-        <intro />
-      </v-window-item>
-      <v-window-item value="swHw">
-        <sw-hw></sw-hw>
-      </v-window-item>
-      <v-window-item value="advancedCS">
-        <AdvancedCS></AdvancedCS>
-      </v-window-item>
-      <v-window-item value="science">
-        <science></science>
-      </v-window-item>
-      <v-window-item value="economics">
-        <economics></economics>
-      </v-window-item>
-      <v-window-item value="philosophy">
-        <philosophy></philosophy>
-      </v-window-item>
-      <v-window-item value="life">
-        <life></life>
-      </v-window-item>
-      <v-window-item value="pulse">
-        <pulse></pulse>
-      </v-window-item>
-      <v-window-item value="setting">
-        <setting></setting>
-      </v-window-item>
-    </v-window>
-  </v-card-text>
+  <div class="d-flex ds-100wp justify-space-between">
+    <div class="tab-btn" @click="tab = 'introduction'">Introduction</div>
+    <div class="tab-btn" @click="tab = 'swHw'">Software / Hardware</div>
+    <div class="tab-btn" @click="tab = 'advancedCS'">Advanced CS</div>
+    <div class="tab-btn" @click="tab = 'science'">Science</div>
+    <div class="tab-btn" @click="tab = 'economics'">Economics</div>
+    <div class="tab-btn" @click="tab = 'philosophy'">Philosophy</div>
+    <div class="tab-btn" @click="tab = 'life'">Life</div>
+    <div class="tab-btn" @click="tab = 'pulse'">Pulse</div>
+    <div class="tab-btn" @click="tab = 'setting'">Setting</div>
+  </div>
+  <div class="ma-3">
+    <intro v-if="tab == 'introduction'"></intro>
+    <sw-hw v-if="tab == 'swHw'"></sw-hw>
+    <AdvancedCS v-if="tab == 'advancedCS'"></AdvancedCS>
+    <science v-if="tab == 'science'"></science>
+    <economics v-if="tab == 'economics'"></economics>
+    <philosophy v-if="tab == 'philosophy'"></philosophy>
+    <life v-if="tab == 'life'"></life>
+    <pulse v-if="tab == 'pulse'"></pulse>
+    <setting v-if="tab == 'setting'"></setting>
+  </div>
 </template>
 
 <script setup>
@@ -67,12 +35,23 @@ import Life from "../views/Life.vue";
 import Pulse from "../views/Pulse.vue";
 import Setting from "../views/Setting.vue";
 
-let tab = ref("");
+let tab = ref("introduction");
 </script>
 
 <style lang="scss">
 .navbar {
   color: white;
   background-color: $primary-color;
+}
+
+.tab-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  font-weight: bold;
+  background-color: $primary-color;
+  color: white;
 }
 </style>
