@@ -26,7 +26,7 @@
       </v-list-item>
     </v-list-item-group>
   </v-card>
-  <pagination-comp class="pagination"></pagination-comp>
+  <pagination-comp class="bottom"></pagination-comp>
 </template>
 
 <script setup>
@@ -65,8 +65,8 @@ export default {
 };
 </script>
 
-<style>
-.pagination {
+<style scoped>
+.bottom {
   width: 100%;
   position: fixed;
   bottom: 0;
