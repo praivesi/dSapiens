@@ -1,6 +1,6 @@
 <template>
   <confirm-modal></confirm-modal>
-  <div :style="{ background: 'red' }">
+  <div>
     <banner />
     <NavBar class="ds-100hp" />
   </div>
