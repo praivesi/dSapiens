@@ -1,6 +1,5 @@
 <template>
   <div class="d-flex justify-space-between ma-5">
-    <!-- <h1>Software / Hardware posts</h1> -->
     <h1>{{ title }}</h1>
     <v-btn @click="$emit('add')"><v-icon>mdi-plus</v-icon></v-btn>
   </div>
@@ -27,7 +26,7 @@
       </v-list-item>
     </v-list-item-group>
   </v-card>
-  <pagination-comp></pagination-comp>
+  <pagination-comp class="pagination"></pagination-comp>
 </template>
 
 <script setup>
@@ -66,4 +65,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.pagination {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+</style>
