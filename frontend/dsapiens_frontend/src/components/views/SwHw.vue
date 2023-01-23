@@ -2,7 +2,6 @@
   <div class="ds-100hp">
     <list-view
       v-if="state == 'list'"
-      class="ds-100hp"
       title="Software / Hardware posts"
       @add="add"
       @edit="edit"

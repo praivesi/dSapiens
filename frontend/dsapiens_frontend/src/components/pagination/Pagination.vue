@@ -8,7 +8,7 @@
     >
     <div v-for="page in pages" :key="page">
       <v-btn
-        :class="page == cur_page ? 'ds-grey' : 'ds-lightgrey'"
+        :class="page == cur_page ? ' ds-grey' : ' ds-lightgrey'"
         @click="pageClick(page)"
         >{{ page }}</v-btn
       >
@@ -66,4 +66,9 @@ function tailClick() {
 }
 </script>
 
-<style></style>
+<style scoped lang="scss">
+// [230123 hsoh] If ".use-scss" style doesn't exist, using scss faield.
+.use-scss {
+  background-color: $primary-color;
+}
+</style>
