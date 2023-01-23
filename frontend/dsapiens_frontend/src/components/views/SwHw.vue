@@ -1,5 +1,5 @@
 <template>
-  <div class="ds-100hp" :style="{ height: 100 + '%' }">
+  <div class="ds-100hp">
     <list-view
       v-if="state == 'list'"
       class="ds-100hp"

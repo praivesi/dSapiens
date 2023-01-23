@@ -1,24 +1,27 @@
 <template>
-  <div class="d-flex justify-space-between ma-5">
+  <div class="d-flex justify-space-between pa-5">
     <h1>{{ title }}</h1>
     <v-btn @click="$emit('add')"><v-icon>mdi-plus</v-icon></v-btn>
   </div>
-  <v-card max-width="100%" class="mx-auto">
-    <v-list-item-group v-model="items">
+  <v-card max-width="100%">
+    <v-list-item-group
+      v-model="items"
+      :style="{ overflow: 'auto', display: 'block', height: 53 + 'vh' }"
+    >
       <v-list-item v-for="(item, i) in items" :key="i">
-        <div class="ds-list-item-cont ds-50hx d-flex align-center pl-2 pr-2">
+        <div class="ds-list-item-cont d-flex align-center pl-2 pr-2">
           <v-list-item-content class="ds-100wp" @click="$emit('post', item)">
-            <div>
+            <div class="d-flex align-center" :style="{ height: 40 + 'px' }">
               <v-list-item-title v-html="item.title"></v-list-item-title>
               <v-list-item-subtitle
                 v-html="item.subtitle"
               ></v-list-item-subtitle>
             </div>
           </v-list-item-content>
-          <v-btn @click="$emit('edit', item)"
+          <v-btn class="ma-2" @click="$emit('edit', item)"
             ><v-icon>mdi-playlist-edit</v-icon></v-btn
           >
-          <v-btn class="ds-btn ml-5" @click="remove(item)"
+          <v-btn class="ma-2" @click="remove(item)"
             ><v-icon>mdi-close</v-icon></v-btn
           >
         </div>
@@ -26,7 +29,7 @@
       </v-list-item>
     </v-list-item-group>
   </v-card>
-  <pagination-comp class="bottom"></pagination-comp>
+  <pagination-comp></pagination-comp>
 </template>
 
 <script setup>
@@ -64,11 +67,4 @@ export default {
   name: "SwHwListView",
 };
 </script>
-
-<style scoped>
-.bottom {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
-</style>
+<style scoped></style>
