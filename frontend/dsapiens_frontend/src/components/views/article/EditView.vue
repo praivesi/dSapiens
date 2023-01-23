@@ -106,7 +106,7 @@ function list() {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .edit-title {
   border: 1px solid grey;
   border-radius: 5px;
