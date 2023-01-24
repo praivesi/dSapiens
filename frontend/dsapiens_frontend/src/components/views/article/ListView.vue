@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import PaginationComp from "@/components/pagination/Pagination.vue";
 
@@ -67,4 +67,9 @@ export default {
   name: "SwHwListView",
 };
 </script>
-<style scoped></style>
+<style scoped lang="scss">
+// [230123 hsoh] If ".use-scss" style doesn't exist, using scss faield.
+.use-scss {
+  background-color: $primary-color;
+}
+</style>

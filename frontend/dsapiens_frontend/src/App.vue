@@ -2,7 +2,8 @@
   <confirm-modal></confirm-modal>
   <div>
     <banner />
-    <NavBar class="ds-100hp" />
+    <nav-bar @gnb="changeGnb" />
+    <DSContent :gnb="gnb" />
   </div>
 </template>
 
@@ -13,7 +14,16 @@ export default {
 </script>
 
 <script setup>
+import { ref } from "vue";
+
 import Banner from "./components/common/Banner.vue";
 import NavBar from "./components/common/NavBar.vue";
+import DSContent from "./components/common/DSContent.vue";
 import ConfirmModal from "./components/modals/ConfirmModal.vue";
+
+let gnb = ref("introduction");
+
+function changeGnb(newGnb) {
+  gnb.value = newGnb;
+}
 </script>
