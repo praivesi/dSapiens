@@ -45,4 +45,9 @@ onMounted(() => {
 });
 </script>
 
-<style></style>
+<style scoped lang="scss">
+// [230123 hsoh] If ".use-scss" style doesn't exist, using scss faield.
+.use-scss {
+  background-color: $primary-color;
+}
+</style>
