@@ -29,7 +29,7 @@
       </v-list-item>
     </v-list-item-group>
   </v-card>
-  <pagination-comp></pagination-comp>
+  <pagination-comp :pageNum="0" :minPage="0" :maxPage="9"></pagination-comp>
 </template>
 
 <script setup>
