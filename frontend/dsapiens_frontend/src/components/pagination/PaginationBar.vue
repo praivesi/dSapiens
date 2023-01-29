@@ -56,7 +56,9 @@ onMounted(() => {
 });
 
 function pageClick(page) {
-  cur_page.value = page;
+  cur_page.value = page - 1;
+
+  emits("pageNum", cur_page.value);
 }
 
 function prevClick() {
