@@ -37,8 +37,8 @@ export default {
     },
   },
   actions: {
-    LOAD_ARTICLES({ commit }) {
-      articleApi.get().then((response) => {
+    LOAD_ARTICLES({ commit }, params) {
+      articleApi.get(params.pageNum).then((response) => {
         console.log("loaded articles => " + JSON.stringify(response.data));
 
         commit("LOAD_ARTICLES", response.data);

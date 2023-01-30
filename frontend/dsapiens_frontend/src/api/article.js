@@ -1,7 +1,7 @@
 import http from "./http";
 
-export async function get() {
-  return http.get("/articles");
+export async function get(pageNum) {
+  return http.get("/articles?pageNum=" + pageNum);
 }
 
 export async function add(author, title, content) {
