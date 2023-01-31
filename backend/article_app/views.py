@@ -6,12 +6,16 @@ from rest_framework.views import APIView
 from rest_framework import status
 from .models import Article
 from .serializers import BaseArticleSerializer
+from django.core.paginator import Paginator, PageNotAnInteger
+# from .pagination import StandardResultsSetPagination
 
 
 def index(request):
     return HttpResponse('Hello world! This is API Root!')
 
 class ArticleAPI(APIView):
+    # pagination = StandardResultsSetPagination
+
     def post(self, request):
         serializer = BaseArticleSerializer(data = request.data)
 
@@ -23,8 +27,15 @@ class ArticleAPI(APIView):
 
     def get(self, request, **kargs):
         if kargs.get('article_id') is None:
-            queryset = Article.objects.all()
-            serializer = BaseArticleSerializer(queryset, many = True)
+            totalArticles = Article.objects.all()
+
+            pageNum = request.GET.get('pageNum', '1')
+            print(f'TEST PAGE => {pageNum}')
+
+            paginator = Paginator(totalArticles, '5') # 5 articles per page
+            paginatedArticles = paginator.get_page(pageNum)
+
+            serializer = BaseArticleSerializer(paginatedArticles, many = True)
         else:
             article_id = kargs.get('article_id')
             serializer = BaseArticleSerializer(Article.objects.get(id = article_id))
