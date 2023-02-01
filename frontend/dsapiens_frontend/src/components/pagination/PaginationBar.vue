@@ -23,7 +23,7 @@
 </template>
 
 <script>
-export default { name: "PaginationComp" };
+export default { name: "PaginationBar" };
 </script>
 
 <script setup>

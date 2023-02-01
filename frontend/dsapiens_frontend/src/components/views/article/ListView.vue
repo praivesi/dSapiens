@@ -29,13 +29,13 @@
       </v-list-item>
     </v-list-item-group>
   </v-card>
-  <pagination-comp :pageNum="0" :minPage="0" :maxPage="9"></pagination-comp>
+  <pagination-bar :pageNum="0" :minPage="0" :maxPage="9"></pagination-bar>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
-import PaginationComp from "@/components/pagination/Pagination.vue";
+import PaginationBar from "@/components/pagination/PaginationBar.vue";
 
 let props = defineProps({
   title: {
