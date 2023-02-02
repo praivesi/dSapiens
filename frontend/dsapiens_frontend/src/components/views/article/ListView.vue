@@ -29,11 +29,16 @@
       </v-list-item>
     </v-list-item-group>
   </v-card>
-  <pagination-bar :pageNum="0" :minPage="0" :maxPage="9"></pagination-bar>
+  <pagination-bar
+    :pageNum="0"
+    :minPage="0"
+    :maxPage="9"
+    @pageNum="movePage"
+  ></pagination-bar>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useStore } from "vuex";
 import PaginationBar from "@/components/pagination/PaginationBar.vue";
 
@@ -51,6 +56,13 @@ onMounted(() => {
   items.value = store.getters["article/GET_ARTICLES"];
 });
 
+watch(
+  () => store.getters["article/GET_ARTICLES"],
+  function () {
+    items.value = store.getters["article/GET_ARTICLES"];
+  }
+);
+
 function remove(item) {
   store.commit("confirmModal/OPEN", {
     title: "삭제",
@@ -59,6 +71,13 @@ function remove(item) {
       store.dispatch("article/REMOVE_ARTICLE", item.id);
     },
   });
+}
+
+function movePage(pageNum) {
+  // [230130 hsoh] add 1 to pageNum because of index mechanism changed..
+  // PaginationBar: start page numbering from 0
+  // Paging API: start page numbering from 1
+  store.dispatch("article/LOAD_ARTICLES", { pageNum: pageNum + 1 });
 }
 </script>
 

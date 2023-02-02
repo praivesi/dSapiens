@@ -41,8 +41,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from "vue";
-
 let emit = defineEmits(["edit"]);
 
 function editClick(item) {

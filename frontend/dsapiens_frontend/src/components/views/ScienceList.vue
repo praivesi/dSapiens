@@ -29,9 +29,6 @@
                 v-html="item.subtitle"
               ></v-list-item-subtitle>
             </div>
-            <!-- <div
-              :style="{ width: 100 + 'vh', 'background-color': 'blue' }"
-            ></div> -->
           </v-list-item-content>
           <v-btn @click="editClick(item)">Edit</v-btn>
         </v-list-item>
@@ -41,8 +38,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from "vue";
-
 let emit = defineEmits(["edit"]);
 
 function editClick(item) {
